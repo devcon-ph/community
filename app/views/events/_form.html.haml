@@ -1,0 +1,27 @@
+= form_for @event do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', placeholder: 'Title'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control', placeholder: 'Description'
+  .form-group
+    = f.label :organization_name
+    = f.text_field :organization_name, class: 'form-control', placeholder: 'Organization Name'
+  .form-group
+    = f.label :start_date
+    = f.datetime_field :start_date, class: 'form-control datepicker'
+  .form-group
+    = f.label :start_time
+    = f.datetime_field :start_time, class: 'form-control timepicker'
+  .form-group
+    = f.label :end_date
+    = f.datetime_field :end_date, class: 'form-control datepicker'
+  .form-group
+    = f.label :end_time
+    = f.datetime_field :end_time, class: 'form-control timepicker'
+  .form-group
+    = f.submit class: 'btn btn-primary'
+
+- content_for :page_javascript do
+  = javascript_include_tag 'event_form'
