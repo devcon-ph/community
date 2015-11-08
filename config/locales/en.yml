@@ -7,8 +7,13 @@ en:
           alert: 'Failed to create event. Please check the error messages.'
 
   activerecord:
+    models:
+      event:
+        one: 'Event'
+        other: '%{count} Events'
     attributes:
       event:
+        id: 'ID'
         title: 'Title'
         description: 'Description'
         organization_name: 'Organization Name'

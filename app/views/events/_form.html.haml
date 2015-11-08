@@ -7,7 +7,7 @@
     = f.text_area :description, class: 'form-control', placeholder: 'Description'
   .form-group
     = f.label :organization_name
-    = f.text_field :organization_name, class: 'form-control', placeholder: 'Organization Name'
+    = f.text_field :organization_name, class: 'form-control typeahead', placeholder: 'Organization Name', autocomplete: 'off'
   .form-group
     = f.label :start_date
     = f.datetime_field :start_date, class: 'form-control datepicker'

@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to events_url, success: t('controllers.events.create.flash.success') }
+        format.html { redirect_to root_url, success: t('controllers.events.create.flash.success') }
       else
         format.html { render :new, alert: t('controllers.events.create.flash.alert') }
       end
