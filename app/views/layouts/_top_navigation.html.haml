@@ -1,13 +1,14 @@
 %nav.navbar.navbar-default.navbar-fixed-top
   .container
-    .navbar-header
-      %button.navbar-toggle.collapsed{aria: {controls: 'navbar', expanded: 'false'}, data: {target: '#navbar', toggle: 'collapse'}, type: 'button'}
+    .navbar-header.page-scroll
+      = link_to 'Communities', root_path, class: 'navbar-brand'
+      %button.navbar-toggle{aria: {controls: 'navbar', expanded: 'false'}, data: {target: '#navbar', toggle: 'collapse'}, type: 'button'}
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Community', root_path, class: 'navbar-brand'
     #navbar.navbar-collapse.collapse
-      %ul.nav.navbar-nav
+      %ul.nav.navbar-nav.navbar-right.navtop
         %li{class: 'active'}= link_to 'Home', root_path
         %li= link_to 'Events', events_path
+        %li= link_to 'Submit Event', new_event_path
