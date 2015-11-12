@@ -1,27 +1,31 @@
 = form_for @event do |f|
-  .form-group
+  .form-group.title-wrap
     = f.label :title
-    = f.text_field :title, class: 'form-control', placeholder: 'Title'
+    = f.text_field :title, class: 'form-control title-input', placeholder: 'Enter the title of your event'
   .form-group
     = f.label :description
-    = f.text_area :description, class: 'form-control', placeholder: 'Description'
+    = f.text_area :description, class: 'form-control', placeholder: 'Enter the description of your event'
   .form-group
     = f.label :organization_name
-    = f.text_field :organization_name, class: 'form-control typeahead', placeholder: 'Organization Name', autocomplete: 'off'
+    = f.text_field :organization_name, class: 'form-control typeahead', placeholder: 'Developers Connect', autocomplete: 'off'
   .form-group
-    = f.label :start_date
-    = f.datetime_field :start_date, class: 'form-control datepicker'
+    .row
+      .col-md-6
+        = f.label :start_date
+        = f.datetime_field :start_date, class: 'form-control datepicker', placeholder: Time.now.strftime('%m/%d/%Y')
+      .col-md-6
+        = f.label :start_time
+        = f.datetime_field :start_time, class: 'form-control timepicker'
   .form-group
-    = f.label :start_time
-    = f.datetime_field :start_time, class: 'form-control timepicker'
-  .form-group
-    = f.label :end_date
-    = f.datetime_field :end_date, class: 'form-control datepicker'
-  .form-group
-    = f.label :end_time
-    = f.datetime_field :end_time, class: 'form-control timepicker'
-  .form-group
-    = f.submit class: 'btn btn-primary'
+    .row
+      .col-md-6
+        = f.label :end_date
+        = f.datetime_field :end_date, class: 'form-control datepicker', placeholder: Time.now.strftime('%m/%d/%Y')
+      .col-md-6
+        = f.label :end_time
+        = f.datetime_field :end_time, class: 'form-control timepicker'
+  .text-center
+    = f.submit 'Submit Event', class: 'btn btn-default btn-signup'
 
 - content_for :page_javascript do
   = javascript_include_tag 'event_form'
