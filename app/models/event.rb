@@ -1,7 +1,9 @@
 class Event < ActiveRecord::Base
+  extend TimeSplitter::Accessors
+
   belongs_to :organization
   enum status: [:pending, :approved, :rejected]
-  attr_accessor :start_date, :end_date, :start_time, :end_time
+  split_accessor :start_at, :end_at, date_format: '%m/%d/%Y', time_format: '%I:%M %p'
 
   validates :title, :description, :start_at, presence: true
 

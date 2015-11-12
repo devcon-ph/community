@@ -14,6 +14,8 @@ gem 'haml', '~> 4.0.5'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'font-awesome-rails'
 
+gem 'time_splitter'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
