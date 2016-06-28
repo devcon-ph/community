@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :authorize_calendar, only: [:new]
+
   def new
     @event = Event.new
 
@@ -22,5 +24,12 @@ class EventsController < ApplicationController
   private
     def event_params
       params.require(:event).permit(:title, :description, :start_at_date, :start_at_time, :end_at_date, :end_at_time, :organization_name)
+    end
+
+    def authorize_calendar
+      unless session[:calendar_refresh_token].present? && CommunityCalendar.refresh_token.present?
+        CommunityCalendar.connection.client.redirect_uri = callback_calendars_url
+        redirect_to CommunityCalendar.authorize_url.to_s
+      end
     end
 end

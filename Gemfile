@@ -16,6 +16,8 @@ gem 'font-awesome-rails'
 
 gem 'time_splitter'
 
+gem 'google_calendar'
+
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
