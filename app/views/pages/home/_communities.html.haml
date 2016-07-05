@@ -1,23 +1,26 @@
 %section#content
   #communities.container
-    - @organizations.each do |organization|
-      .community.comm-wrap
-        = image_tag "logos/logo-#{organization.short_name.downcase}.png", class: 'img-responsive'
-        .comm-wrap-top.text-center
-          %h4 #{organization.name} (#{organization.short_name})
-        .comm-wrap-top2
-          %p.comm-p= organization.description
-          %hr/
-          %hr/
-          - if organization.website_url.present?
-            %p.globe
-              %i.fa.fa-globe
-              = link_to organization.website_url, organization.website_url
-          - if organization.facebook_url.present?
-            %p.fb
-              %i.fa.fa-facebook
-              = link_to 'Facebook', organization.facebook_url
-          - if organization.twitter_handle.present?
-            %p.twit
-              %i.fa.fa-twitter
-                = link_to "@#{organization.twitter_handle}", "https://twitter.com/#{organization.twitter_handle}"
+    - @organizations.each_slice(3) do |row|
+      .row
+        - row.each do |organization|
+          .community.comm-wrap
+            .comm-image-wrapper
+              = image_tag "logos/logo-#{organization.short_name.downcase}.png", class: 'img-responsive'
+            .comm-wrap-top.text-center
+              %h4 #{organization.name} (#{organization.short_name})
+            .comm-wrap-top2
+              %p.comm-p= organization.description
+              %hr/
+              %hr/
+              - if organization.website_url.present?
+                %p.globe
+                  %i.fa.fa-globe
+                  = link_to organization.website_url, organization.website_url
+              - if organization.facebook_url.present?
+                %p.fb
+                  %i.fa.fa-facebook
+                  = link_to 'Facebook', organization.facebook_url
+              - if organization.twitter_handle.present?
+                %p.twit
+                  %i.fa.fa-twitter
+                    = link_to "@#{organization.twitter_handle}", "https://twitter.com/#{organization.twitter_handle}"
