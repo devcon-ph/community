@@ -9,6 +9,6 @@
         %span.icon-bar
     #navbar.navbar-collapse.collapse
       %ul.nav.navbar-nav.navbar-right.navtop
-        %li{class: 'active'}= link_to 'Home', root_path
-        %li= link_to 'Events', events_path
+        %li{class: params[:action].eql?('home') ? 'active' : ''}= link_to 'Home', root_path
+        %li{class: params[:action].eql?('index') ? 'active' : ''}= link_to 'Events', events_path
         -# %li= link_to 'Submit Event', new_event_path
